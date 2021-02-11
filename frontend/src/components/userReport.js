@@ -3,15 +3,15 @@ import React, { useState,useEffect } from 'react'
   function User(){
   const [userName,setUserName]=useState([]);
   const [editCount,setEditCount]=useState([]);
-  let user=[];
+ // let user=[];
   let userArray=[];
   useEffect(()=>{
-})
+  handler();
+},[])
 const handler=()=>{
     setInterval(()=>{
         fetch('http://localhost:9999/user').then((r)=>r.json()).then((r)=>{
           //  user=r;
-            //setUserName(user);
             userArray=[];
              userArray=r.userName.map(((user)=>{
                // console.log(user.performer.user_edit_count)
@@ -37,35 +37,17 @@ const handler=()=>{
               }
               return 0;
           });
-
-
-          //setUserName([...userArray]);
-          setUserName([...userArray]);
-              
+          setUserName([...userArray]);       
 
     }).then(()=>{
 
+    })},6000)
 
-        /*
-
-
-  */      
-
-     // setUserName([...userArray])
-
-
-    })
-
-
-
-
-       },6000)
 }
 
 
     return (
       <div>
-      <button onClick={handler}>click here</button>
       {userName.map((m)=>{
           if(m.name!==null)
           return(
