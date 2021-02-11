@@ -48,6 +48,7 @@ const handler=()=>{
 
     return (
       <div>
+      Wait for a minute to get Report 
       {userName.map((m)=>{
           if(m.name!==null)
           return(

@@ -44,6 +44,7 @@ const handler=()=>{
 
     return (
       <div>
+      Wait for a minute to get Domain Report
       {domain.map((m)=>{
           if(m.domain!==null)
           return(
