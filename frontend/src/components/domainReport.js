@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-  
+import Timer from './Timer';
   function Domain(){
   const [domain,setDomain]=useState([]);
   const [editCount,setEditCount]=useState([]);
@@ -44,7 +44,8 @@ const handler=()=>{
 
     return (
       <div>
-      Wait for a minute to get Domain Report
+      Wait for a minute to get Domain Report  
+      <Timer/>
       {domain.map((m)=>{
           if(m.domain!==null)
           return(

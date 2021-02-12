@@ -1,6 +1,7 @@
 import React from 'react';
 import User from './components/userReport';
 import Domain from './components/domainReport';
+import './App.css';
 import { 
   BrowserRouter as Router, 
   Route, 
@@ -11,24 +12,28 @@ import {
 
 
 export default function App(){
-    const handler=()=>{
-
+  
+    const handler= ()=>{
+   
     }
+
     return (
         <>
-        <div>
+        <div className="back">
        
       {/*  <User/> */}
-
-
+   
       <Router> 
-           <div className="button"> 
+           <div className=""> 
+          <span className="logo"> WIKIPEDIA STREAMING </span> 
            <div className="divide">
+       
            {true?<>
-                <Link to="/user"><button className="btn btn-primary" onClick={handler}>User</button></Link> 
-            
-                <Link to="/domain"><button className="btn btn-primary" onClick={handler}>Domain</button></Link>
-            
+           <div className="but">
+                <Link to="/user"><button className="button" onClick={handler}>User</button></Link> 
+          
+                <Link to="/domain"><button className="button" onClick={handler}>Domain</button></Link>
+            </div>
                </>
            :null}
            </div>
@@ -39,13 +44,6 @@ export default function App(){
             </Switch> 
           </div> 
        </Router> 
-
-
-
-
-
-
-
 
         </div>
         </>

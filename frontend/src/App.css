@@ -1,0 +1,23 @@
+.button{
+background-color:teal;
+height:35px;
+border-radius:5px;
+margin:10px;
+}
+.but{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    
+}
+.logo{
+  font-size: large;
+  font-style: italic;
+  font-weight: bold;
+  
+}
+.back{
+    border-radius: 10px ;
+    background-image: linear-gradient(to left, rgba(22, 173, 67, 0), rgb(35, 122, 221));
+    height:100vh;
+}

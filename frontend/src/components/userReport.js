@@ -1,12 +1,14 @@
 import React, { useState,useEffect } from 'react'
-  
+import Timer from './Timer';
   function User(){
   const [userName,setUserName]=useState([]);
   const [editCount,setEditCount]=useState([]);
+  //const [timer,setTimer]=useState(0);
  // let user=[];
   let userArray=[];
   useEffect(()=>{
   handler();
+  
 },[])
 const handler=()=>{
     setInterval(()=>{
@@ -14,8 +16,8 @@ const handler=()=>{
           //  user=r;
             userArray=[];
              userArray=r.userName.map(((user)=>{
-               // console.log(user.performer.user_edit_count)
-                     if(user.performer.user_is_bot===false){
+               console.log(user)
+                     if(user.performer.user_is_bot===false && user.meta.domain==="en.wikipedia.org"){
                         // console.log(user.performer.user_text)
                         return {name : user.performer.user_text , count : user.performer.user_edit_count};
                      }
@@ -48,7 +50,8 @@ const handler=()=>{
 
     return (
       <div>
-      Wait for a minute to get Report 
+      Wait for a minute to get Report
+      <Timer/>
       {userName.map((m)=>{
           if(m.name!==null)
           return(
