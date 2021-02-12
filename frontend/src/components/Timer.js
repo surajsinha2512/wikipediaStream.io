@@ -16,6 +16,8 @@ const handler=()=>{
           setTimer(time);  
           if(time===60){
             clearInterval(remove);
+            handler();
+            time=0;
             }
     },1000);
 }

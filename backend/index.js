@@ -30,7 +30,7 @@ eventSource.onmessage = function(event) {
 setInterval(()=>{
     userName=[];
     domain=[];
-},6050)
+},60050)
 
 app.get('/user',(req,res)=>{
 res.set('Access-Control-Allow-Origin', '*');

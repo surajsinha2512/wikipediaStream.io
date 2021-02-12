@@ -3,7 +3,8 @@ import Timer from './Timer';
   function Domain(){
   const [domain,setDomain]=useState([]);
   const [editCount,setEditCount]=useState([]);
-  //let val=[];
+  let totalDomainCount=0
+  let uniqueDomain=new Map();
   let domainArray=[];
   useEffect(()=>{
     handler();
@@ -22,8 +23,31 @@ const handler=()=>{
                      else{
                          return {domain:null,count:null}
                      }
-              
             }))
+
+
+
+  
+  /// storing in map to count unique values
+           totalDomainCount=0;
+            domainArray.map((temp)=>{
+                if(uniqueDomain.has(temp.domain)){
+                    uniqueDomain.set(temp.domain,uniqueDomain.get(temp.domain)+1)
+                }
+                else{
+                    uniqueDomain.set(temp.domain,1)
+                    totalDomainCount++;
+                }
+               
+            })
+
+
+            setEditCount(totalDomainCount);
+            console.log(uniqueDomain);
+           
+
+
+ // sorting values according to  number appearance of  particular domain 
           domainArray.sort((a,b)=>{
             if ( a.count < b.count ){
                 return 1;
@@ -33,21 +57,24 @@ const handler=()=>{
               }
               return 0;
           });
-          setDomain([...domainArray]);
-              
+          setDomain([...domainArray]);      
 
     }).then(()=>{
 
-    })},6000)
+    })},60000)
 }
 
 
     return (
       <div>
-      Wait for a minute to get Domain Report  
+      <div> Wait for a minute to get Domain Report  </div>
+       <br/>
+      <span>Total Number of Wikipedia Domains Updated :</span>
+      <span>{editCount}</span>
+    
       <Timer/>
       {domain.map((m)=>{
-          if(m.domain!==null)
+          if(m.domain!==null){
           return(
               <>
               <div>
@@ -56,7 +83,9 @@ const handler=()=>{
               </div>
               </>
           )
+          }
       })}
+     
       </div>
     )
   }
